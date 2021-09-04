@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,31 +17,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball1" translatesAutoresizingMaskIntoConstraints="NO" id="neD-ez-dby">
-                                <rect key="frame" x="62" y="266" width="276" height="237"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMj-qR-myu">
-                                <rect key="frame" x="123" y="639" width="155" height="71"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Ask">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="askButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBq-Zq-0KC"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ask Me Anything..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez8-Qn-d4A">
-                                <rect key="frame" x="87" y="107" width="241" height="72"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NbN-0X-6tk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jHx-CF-Mgb" userLabel="Top View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="267.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask Me Anything..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez8-Qn-d4A">
+                                                <rect key="frame" x="87" y="115.5" width="240" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ez8-Qn-d4A" firstAttribute="centerX" secondItem="jHx-CF-Mgb" secondAttribute="centerX" id="Oks-me-Kli"/>
+                                            <constraint firstItem="ez8-Qn-d4A" firstAttribute="centerY" secondItem="jHx-CF-Mgb" secondAttribute="centerY" id="s79-fl-3mi"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Tb-6g-T47" userLabel="Middle view">
+                                        <rect key="frame" x="0.0" y="275.5" width="414" height="267"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ball1" translatesAutoresizingMaskIntoConstraints="NO" id="neD-ez-dby">
+                                                <rect key="frame" x="54.5" y="-3" width="305" height="273.5"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="neD-ez-dby" firstAttribute="centerY" secondItem="2Tb-6g-T47" secondAttribute="centerY" id="85A-Z9-Xx9"/>
+                                            <constraint firstItem="neD-ez-dby" firstAttribute="centerX" secondItem="2Tb-6g-T47" secondAttribute="centerX" id="LV3-DS-kHo"/>
+                                            <constraint firstItem="neD-ez-dby" firstAttribute="centerY" secondItem="2Tb-6g-T47" secondAttribute="centerY" id="OWz-R6-YbI"/>
+                                            <constraint firstItem="neD-ez-dby" firstAttribute="centerX" secondItem="2Tb-6g-T47" secondAttribute="centerX" id="of7-Ve-BWa"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ME-6N-4Gr" userLabel="Bottom View">
+                                        <rect key="frame" x="0.0" y="550.5" width="414" height="267.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMj-qR-myu">
+                                                <rect key="frame" x="157" y="109" width="100" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="6wB-rE-Cn5"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="b9J-jH-jwo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <state key="normal" title="Ask">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="askButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBq-Zq-0KC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="uMj-qR-myu" firstAttribute="centerY" secondItem="5ME-6N-4Gr" secondAttribute="centerY" id="dgJ-oV-b83"/>
+                                            <constraint firstItem="uMj-qR-myu" firstAttribute="centerX" secondItem="5ME-6N-4Gr" secondAttribute="centerX" id="zcT-F2-vD5"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstItem="NbN-0X-6tk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="29d-Wv-ZR0"/>
+                            <constraint firstItem="NbN-0X-6tk" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Im9-M3-0WD"/>
+                            <constraint firstItem="NbN-0X-6tk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="m3n-cK-MMe"/>
+                            <constraint firstItem="NbN-0X-6tk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mIM-vH-qGq"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="Ball" destination="neD-ez-dby" id="T4X-Wv-Hdd"/>
